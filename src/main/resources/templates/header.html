@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Insert title here</title>
+  <script src="js.js"></script>
+</head>
+<body>
+<header th:fragment="HeaderBar">
+  <nav sec:authorize="isAnonymous()">
+    <div id="left-links">
+    </div>
+    <div id="right-link">
+      <a href="/login">Login</a>
+    </div>
+  </nav>
+  <nav sec:authorize="hasRole('CAT')">
+    <div id="left-links">
+      <a href="/">Home</a>
+      <a href="https://www.youtube.com/watch?v=eX2qFMC8cFo" target="_blank" rel="noopener noreferrer">Cat Videos</a>
+    </div>
+    <div id="right-link">
+      <a href="/logout">Logout</a>
+    </div>
+  </nav>
+  <nav sec:authorize="hasRole('DOG')">
+    <div id="left-links">
+      <a href="/">Home</a>
+      <a href="https://www.youtube.com/watch?v=m6A7end34KQ" target="_blank" rel="noopener noreferrer">Dog Videos</a>
+    </div>
+    <div id="right-link">
+      <a href="/logout">Logout</a>
+    </div>
+  </nav>
+
+</header>
+</body>
+</html>

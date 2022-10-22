@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../static/css/header.css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" href="../static/css/login.css" th:href="@{/css/login.css}">
+    <title>Login</title>
+</head>
+<body>
+<header th:replace="Header :: HeaderBar">
+</header>
+<main>
+
+    <form th:action="@{/login}"  method="post">
+        <div id="form-container">
+            <h4>Sign in to your account</h4>
+            <div class="form-group">
+                <label for="login" class="form-label">Login</label>
+                <input id="login" type="text" name="username" class="form-control" required autofocus/>
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input id="password" type="password" name="password" class="form-control" required/>
+            </div>
+            <span><p th:if="${#request.getParameter('error')}" class="message">
+                Your username or password is incorrect. Please try again.
+            </p></span>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </form>
+
+</main>
+<footer>
+    <div><p>Sheridan College Venkatesh Sritharan</p></div>
+</footer>
+</body>
+</html>

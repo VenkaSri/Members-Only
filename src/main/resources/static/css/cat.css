@@ -1,0 +1,14 @@
+body {
+    background-color: #FBF2E3;
+}
+
+img {
+    width: 350px;
+    height: 350px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

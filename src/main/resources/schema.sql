@@ -1,0 +1,20 @@
+CREATE TABLE pet (
+     petID INT AUTO_INCREMENT PRIMARY KEY,
+     userName VARCHAR(15) UNIQUE NOT NULL,
+     password VARCHAR(128) NOT NULL
+);
+
+CREATE TABLE roles (
+    roleID INT AUTO_INCREMENT PRIMARY KEY,
+    roleName VARCHAR(15) UNIQUE NOT NULL
+);
+
+CREATE TABLE PetRoles
+(
+    petID  INT,
+    roleID INT,
+    PRIMARY KEY (petID, roleID),
+    FOREIGN KEY (petID) REFERENCES pet (petID),
+    FOREIGN KEY (roleID) REFERENCES roles (roleID)
+);
+

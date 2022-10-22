@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dog Private Space</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/header.css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" href="../static/css/landing.css" th:href="@{/css/landing.css}">
+    <link rel="stylesheet" href="../static/css/dog.css" th:href="@{/css/dog.css}"
+</head>
+<body>
+<header th:replace="Header :: HeaderBar">
+
+</header>
+<main>
+    <img th:src="@{/images/dog.gif}" alt="dog gif" >
+</main>
+<footer>
+    <div><p>Sheridan College Venkatesh Sritharan</p></div>
+</footer>
+</body>
+</html>

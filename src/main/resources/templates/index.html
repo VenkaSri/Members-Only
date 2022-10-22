@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/header.css" th:href="@{/css/header.css}">
+    <link rel="stylesheet" href="../static/css/landing.css" th:href="@{/css/landing.css}">
+</head>
+<body>
+<header th:replace="Header :: HeaderBar">
+
+</header>
+<main>
+    <div id="cover-background">
+        <div sec:authorize="hasRole('CAT')" id="cCover">
+            <h2>Welcome back, [[${#httpServletRequest.remoteUser}]]!</h2>
+        </div>
+        <div sec:authorize="hasRole('DOG')" id="dCover">
+            <h2 >Welcome back, [[${#httpServletRequest.remoteUser}]]!</h2>
+        </div>
+        <div sec:authorize="isAnonymous()" id="cover">
+            <h2 >Welcome!<span></span></h2>
+        </div>
+    </div>
+    <div sec:authorize="hasRole('DOG')" class="cards">
+        <div class="pet-card" id="dog-card"><h4><a th:href="@{/dog/index}">Dog Private Space</a></h4>
+        </div>
+    </div>
+    <div sec:authorize="hasRole('CAT')" class="cards">
+        <div class="pet-card" id="cat-card">
+            <h4><a th:href="@{/cat/index}">Cat Private Space</a></h4>
+        </div>
+    </div>
+    <div sec:authorize="isAnonymous()" class="cards">
+        <div class="about-card" id="about-card">
+            <h4><a href="https://www.youtube.com/watch?v=JuQLtbBZKxg" target="_blank" rel="noopener noreferrer">About Us</a></h4>
+        </div>
+    </div>
+</main>
+<footer>
+    <div><p>Venkatesh Sritharan</p></div>
+</footer>
+</body>
+</html>
